@@ -1,0 +1,30 @@
+1.Answer: 
+
+To compare two JSON objects that have the same properties without considering the order of properties, you can follow these steps in JavaScript:
+
+*Convert both JSON objects to strings.
+*Sort the strings to ensure that the properties are in the same order.
+*Compare the sorted strings.
+
+
+Here's a code example:
+
+let obj1 = { name: "Person 1", age: 5 };
+let obj2 = { age: 5, name: "Person 1" };
+
+// Convert the objects to JSON strings
+let jsonString1 = JSON.stringify(obj1);
+let jsonString2 = JSON.stringify(obj2);
+
+// Sort the JSON strings
+let sortedJsonString1 = jsonString1.split('').sort().join('');
+let sortedJsonString2 = jsonString2.split('').sort().join('');
+
+// Compare the sorted strings
+if (sortedJsonString1 === sortedJsonString2) {
+    console.log("The JSON objects are equivalent.");
+} else {
+    console.log("The JSON objects are not equivalent.");
+}
+
+This code first converts the JSON objects to strings using JSON.stringify(), then sorts the characters of the strings, and finally compares the sorted strings. This approach ensures that the order of properties does not affect the comparison, and it will consider the objects in your example as equivalent.
